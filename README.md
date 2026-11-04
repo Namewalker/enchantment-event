@@ -300,3 +300,143 @@ Configurable:
 - End opening timing
 - Allowed enchantments
 - Discovery methods
+
+==================================================
+DIMENSION CONTROL
+==================================================
+
+The event controls access to dimensions in order
+to keep players interacting and prevent excessive
+hiding.
+
+==================================================
+NETHER LOCKDOWN
+==================================================
+
+When:
+
+/enchantmentevent start
+
+is executed:
+
+The Nether immediately becomes disabled.
+
+Methods:
+
+- Nether portals fail to activate.
+- Existing portals become unusable.
+- Teleport commands into the Nether are blocked.
+- Players inside the Nether are returned to spawn
+  (configurable) or their overworld location.
+
+Purpose:
+
+- Prevent hidden Nether highways.
+- Prevent players escaping conflict.
+- Keep all artifact holders within one world.
+
+Default:
+
+nether-enabled-during-event: false
+
+==================================================
+THE END
+==================================================
+
+The End remains locked until opened by the event.
+
+Default:
+
+end-locked: true
+
+When the configured opening condition occurs:
+
+- End portals activate.
+- Players may enter the End.
+- Dragon fight begins.
+
+Server Announcement:
+
+"The final seal has shattered."
+
+==================================================
+MULTI-DIMENSION WORLD BORDER
+==================================================
+
+The event border applies to ALL dimensions.
+
+Affected Worlds:
+
+- Overworld
+- The End
+- Nether (if enabled)
+
+Default:
+
+event-border-size: 5000
+
+Example:
+
+Overworld Border:
+5000
+
+End Border:
+5000
+
+Nether Border:
+5000
+
+Purpose:
+
+Prevent dimension-hopping to avoid conflict.
+
+==================================================
+REALITY COLLAPSE
+==================================================
+
+Once the Dragon Egg is claimed:
+
+The world enters its final phase.
+
+The border begins shrinking in all active
+dimensions simultaneously.
+
+Example:
+
+5000
+↓
+4000
+↓
+2500
+↓
+1000
+↓
+250
+↓
+50
+↓
+0
+
+Default Duration:
+
+collapse-duration-minutes: 120
+
+Recommended Range:
+
+60-180 minutes
+
+==================================================
+FINAL CONVERGENCE
+==================================================
+
+As the border shrinks:
+
+- Hidden bases become irrelevant.
+- End-island hideouts become impossible.
+- Underground bunkers eventually become exposed.
+- Players are forced into increasingly frequent
+  encounters.
+
+The holder of Death Ban becomes a growing threat.
+
+The event is guaranteed to conclude.
