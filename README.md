@@ -224,6 +224,8 @@ If applied to Shield:
 If applied to Bow:
 - Vanilla functionality.
 
+Notes: should never deal damage to their owner (looking at sweeping edge for this mainly).
+
 ==================================================
 REMOVED ENCHANTMENTS
 ==================================================
