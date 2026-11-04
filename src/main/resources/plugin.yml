@@ -1,0 +1,15 @@
+name: EnchantmentEvent
+version: 1.0.0
+main: com.enchantmentevent.EnchantmentEventPlugin
+author: Enchantment Event
+description: A server-wide event where enchantments become unique artifacts.
+commands:
+  enchantmentevent:
+    description: Controls the Enchantment Event.
+    usage: /enchantmentevent <start|stop|killroll|worldroll|status>
+    aliases: [ee]
+    permission: enchantmentevent.admin
+permissions:
+  enchantmentevent.admin:
+    description: Allows management of the Enchantment Event.
+    default: op

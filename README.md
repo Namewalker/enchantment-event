@@ -238,6 +238,64 @@ Luck of the Sea
 
 Lure
 
+==================================================
+BUILD AND INSTALL
+==================================================
+
+Requirements:
+- Maven 3.8 or newer.
+- JDK 8 or newer. The plugin is compiled for Java 8 bytecode.
+- A Spigot 1.12.2 server.
+
+Build from the project directory:
+
+    mvn package
+
+Copy target/EnchantmentEvent.jar into the server's plugins directory and restart
+the server. The first launch creates plugins/EnchantmentEvent/config.yml.
+
+==================================================
+COMMANDS AND CONFIGURATION
+==================================================
+
+/enchantmentevent start
+/enchantmentevent stop
+/enchantmentevent killroll
+/enchantmentevent worldroll
+/enchantmentevent status
+
+The commands also have the /ee alias and require the enchantmentevent.admin
+permission, granted to operators by default.
+
+config.yml controls the opening-roll delay, duplicate countdown, and the list
+of enchantments eligible for event rolls. Remove an enchantment from
+available-enchantments to exclude it. Curse of Binding, Curse of Vanishing,
+Luck of the Sea, and Lure are excluded by default.
+
+==================================================
+IMPLEMENTATION NOTES
+==================================================
+
+- Available rolls are persisted and discovered in player inventories, opened
+  inventories, and loaded world item drops. Unopened inventories are discovered
+  when opened.
+- Enchanted books can be applied to any item through an anvil. Unsafe enchant
+  application allows otherwise-incompatible enchantments to coexist.
+- Duplicate enchantments are blocked when a player already carries that event
+  enchantment. Duplicate book drops freeze and expire after the configured
+  countdown; duplicate books taken from containers are blocked with a message.
+- On death, configured event enchantments are removed from carried items and
+  dropped as books at their existing levels. Ordinary vanilla enchantments are
+  unaffected.
+- Sweeping Edge deals half damage to nearby living entities and excludes the
+  attacker. Punch applies knockback from any held item. Infinity preserves
+  consumables, placed blocks, and totems, and prevents durability damage.
+- Bukkit 1.12 does not expose server-side melee reach or a weapon attack
+  cooldown. Power and Efficiency therefore keep their vanilla behavior; the
+  custom reach/cooldown behavior in the design notes needs an NMS or packet-level
+  implementation to be reliable. Infinity prevents shield durability damage,
+  but the 1.12 event API does not reliably prevent an axe from disabling a shield.
+
 These enchantments cannot generate.
 
 ==================================================
